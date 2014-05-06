@@ -1,0 +1,106 @@
+<html>
+  <head>
+
+    <link rel="icon" type="image/png" href="favicon.ico" />
+
+    <style>
+      #center {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        margin: auto;
+
+        width: 300px;
+        height: 200px;
+        background-color: red;
+      }
+      #search_input {
+        width: 100%;
+      }
+      #search_button {
+        width: 100%;
+        height: 30px;
+      }
+    </style>
+
+    <link rel="search" type="application/opensearchdescription+xml" title="search" href="opensearch.xml">
+
+    <script src="jquery.js"></script>
+    <script src="mustache.js"></script>
+
+    <script class="template" type="text/mustache" data-bang="g">https://www.google.fr/search?q={{query}}</script>
+    <script class="template" type="text/mustache" data-bang="w">http://fr.wikipedia.org/w/index.php?search={{query}}</script>
+    <script class="template" type="text/mustache" data-bang="ddg">https://duckduckgo.com/?q={{query}}</script>
+
+    <script>
+      $(function() {
+
+        // Loading templates
+        var templates = {};
+        $(".template").each(function () {
+          templates[$(this).data('bang')] = $(this).html();
+        });
+
+        // Default template
+        default_bang = "g";
+
+        // Log templates (debug)
+        console.log("templates");
+        console.log(templates);
+
+        // Search function
+        var search = function (input) {
+          var i, url, query;
+          var parts = input.split(/\ +/);
+
+          console.log("parts");
+          console.log(parts);
+
+          for (i = 0; i < parts.length; i++)
+          {
+            var part = parts[i];
+            if (part.charAt(0) !== '!')
+              continue;
+            var bang = part.substring(1);
+            if (templates[bang])
+            {
+              query = parts.slice(0);
+              query.splice(i, 1);
+              url = Mustache.render(templates[bang], { query: query.join("+") });
+              window.location.replace(url);
+            }
+          }
+          query = parts.slice(0);
+          url = Mustache.render(templates[default_bang], { query: query.join("+") });
+          window.location.replace(url);
+        }
+
+        // Event handler
+        $("#search_button").click(function () {
+          search($("#search_input").val());
+        });
+        $("#search_input").keypress(function (e) {
+          if (e.keyCode === 13)
+            search($("#search_input").val());
+        });
+
+        // Url handler
+        var input = window.location.search;
+        if (input && input.charAt(0) === '?' && input.charAt(1) === 'q' && input.charAt(2) === '=')
+        {
+          input = input.substring(3);
+          input = input.replace(/\+/g, ' ');
+          console.log(input);
+          search(input);
+        }
+
+      });
+    </script>
+
+  </head>
+  <body>
+    <div id="center">
+      <input type="text" id="search_input"></input>
+      <button id="search_button"></button>
+    </div>
+  </body>
+</html>
