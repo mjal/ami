@@ -2,7 +2,7 @@
 (function() {
   $(function() {
     var default_site, input, search, sites;
-    default_site = "ddg";
+    default_site = "g";
     sites = {
       "g": function(query) {
         return "https://www.google.fr/search?q=" + query;
@@ -15,6 +15,12 @@
       },
       "ddg": function(query) {
         return "https://duckduckgo.com/?q=" + query;
+      },
+      "soundcloud": function(query) {
+        return "https://soundcloud.com/search?q=" + query;
+      },
+      "sc": function(query) {
+        return "https://soundcloud.com/search?q=" + query;
       }
     };
     console.log("sites");
@@ -44,6 +50,8 @@
     input = window.location.search;
     if (input && input.charAt(0) === "?" && input.charAt(1) === "q" && input.charAt(2) === "=") {
       search(input.substring(3).replace(/\+/g, " "));
+    } else {
+      $("#search_input").focus();
     }
     $("#search_button").click(function() {
       return search($("#search_input").val());

@@ -1,10 +1,9 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
   xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>search</ShortName>
+  <ShortName>Ami</ShortName>
   <Description>engineDescription</Description>
   <InputEncoding>inputEncoding</InputEncoding>
-  <Image height="64" width="64" type="image/png">favicon.ico</Image>
-  <!--Image width="16" height="16">data:image/x-icon;base64,imageData</Image-->
+  <Image height="64" width="64" type="image/jpg">logo.jpg</Image>
   <Url type="text/html" template="http://0.0.0.0:8000/index.html?q={searchTerms}" />
   <!--Url type="application/x-suggestions+json" template="suggestionURL"/-->
   <moz:SearchForm>http://0.0.0.0:8000/index.html</moz:SearchForm> 

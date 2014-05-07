@@ -1,11 +1,13 @@
 $ ->
-  default_site = "ddg"
+  default_site = "g"
 
   sites =
     "g": (query) -> "https://www.google.fr/search?q=#{query}"
     "w": (query) -> "http://fr.wikipedia.org/w/index.php?search=#{query}"
     "yt": (query) -> "https://www.youtube.com/results?search_query=#{query}"
     "ddg": (query) -> "https://duckduckgo.com/?q=#{query}"
+    "soundcloud": (query) -> "https://soundcloud.com/search?q=#{query}"
+    "sc": (query) -> "https://soundcloud.com/search?q=#{query}"
 
   console.log("sites")
   console.log(sites)
@@ -32,6 +34,8 @@ $ ->
   input = window.location.search
   if input and input.charAt(0) is "?" and input.charAt(1) is "q" and input.charAt(2) is "="
     search input.substring(3).replace(/\+/g, " ")
+  else
+    $("#search_input").focus()
 
   # Events
   $("#search_button").click ->
