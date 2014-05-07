@@ -1,0 +1,10 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+  xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Ami</ShortName>
+  <Description>engineDescription</Description>
+  <InputEncoding>inputEncoding</InputEncoding>
+  <Image height="64" width="64" type="image/jpg">logo.jpg</Image>
+  <Url type="text/html" template="http://0.0.0.0:8000/index.html?q={searchTerms}" />
+  <!--Url type="application/x-suggestions+json" template="suggestionURL"/-->
+  <moz:SearchForm>http://0.0.0.0:8000/index.html</moz:SearchForm> 
+</OpenSearchDescription>
