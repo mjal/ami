@@ -9,6 +9,10 @@
   background-position: center center;
 }
 
-#search_button {
+#buttons {
+  margin-top: 20px;
+}
+
+#options {
   margin-top: 20px;
 }
