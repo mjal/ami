@@ -6,5 +6,5 @@
   <Image height="64" width="64" type="image/jpg">logo.jpg</Image>
   <Url type="text/html" template="http://mjal.github.io/ami/index.html?q={searchTerms}" />
   <!--Url type="application/x-suggestions+json" template="suggestionURL"/-->
-  <moz:SearchForm>http://mjal.github.io/ami</moz:SearchForm> 
+  <!--moz:SearchForm>http://mjal.github.io/ami</moz:SearchForm--> 
 </OpenSearchDescription>
