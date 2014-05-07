@@ -69,7 +69,7 @@ $ ->
   input = window.location.search
   if input and input.charAt(0) is "?" and input.charAt(1) is "q" and input.charAt(2) is "="
     # Handle search
-    route(input.substring(3).replace(/\+/g, " "))
+    route(input.substring(3).replace(/\+/g, " ").replace(/\/$/, ""))
   else
     # Show UI
     new Search(el: $("#main"))

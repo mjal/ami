@@ -107,7 +107,7 @@
     })(Spine.Controller);
     input = window.location.search;
     if (input && input.charAt(0) === "?" && input.charAt(1) === "q" && input.charAt(2) === "=") {
-      return route(input.substring(3).replace(/\+/g, " "));
+      return route(input.substring(3).replace(/\+/g, " ").replace(/\/$/, ""));
     } else {
       new Search({
         el: $("#main")
