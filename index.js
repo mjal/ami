@@ -59,7 +59,7 @@
         template = sites[alias[bang]];
       }
     }
-    query = query.replace(/\s+/g, ' ').replace(/^\ /, '').replace(/\ $/, '');
+    query = query.replace(/^\ /, '').replace(/\ +$/, '').replace(/\s+/g, ' ');
     return window.location.href = template(encodeURIComponent(query));
   };
 
