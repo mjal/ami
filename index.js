@@ -65,7 +65,7 @@
   input = window.location.search;
 
   if (input && input.match(/^\?q=/)) {
-    search = decodeURIComponent(input.substring(3).replace(/\/$/, ""));
+    search = decodeURIComponent(input.substring(3).replace(/\ *\/?$/, ""));
     do_search(search);
   }
 

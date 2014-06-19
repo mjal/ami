@@ -34,7 +34,7 @@ do_search = (query) ->
 
 input = window.location.search
 if input and input.match(/^\?q=/)
-  search = decodeURIComponent(input.substring(3).replace(/\/$/, ""))
+  search = decodeURIComponent(input.substring(3).replace(/\ *\/?$/, ""))
   do_search(search)
 
 ###
