@@ -31,6 +31,7 @@ $ ->
       query += request[3] if request[3]
       if bang and sites[bang] then template = sites[bang]
       if bang and alias[bang] then template = sites[alias[bang]]
+      alert bang
     window.location.href = template(query.replace(/\s+/g, ' '))
 
   input = window.location.search
@@ -65,4 +66,3 @@ $ ->
 
     new Search(el: $("#main"))
     new Options(el: $("#options"))
-

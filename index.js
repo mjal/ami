@@ -58,6 +58,7 @@
         if (bang && alias[bang]) {
           template = sites[alias[bang]];
         }
+        alert(bang);
       }
       return window.location.href = template(query.replace(/\s+/g, ' '));
     };
