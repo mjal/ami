@@ -23,6 +23,7 @@ $ ->
   default_template = sites[default_site]
 
   do_search = (query) ->
+    alert(decodeURIComponent(query))
     template = default_template
     request = query.match(/^(.*)?\!(\w+)( .*)?/)
     if request
@@ -35,10 +36,10 @@ $ ->
     window.location.href = template(query.replace(/\s+/g, ' '))
 
   input = window.location.search
-  alert(decodeURIComponent(input))
-  if input and input.charAt(0) is "?" and input.charAt(1) is "q" and input.charAt(2) is "="
-    # handle search params
-    do_search(input.substring(3).replace(/\+/g, " ").replace(/\/$/, ""))
+  if input and input.match(/^\?q=/)
+    alert("do search")
+    alert decodeURIComponent(input)
+    do_search(input.substring(3).replace(/\/$/, ""))
   else
     # build ui
     class Search extends Spine.Controller
