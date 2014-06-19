@@ -31,11 +31,11 @@ do_search = (query) ->
     if bang and sites[bang] then template = sites[bang]
     if bang and alias[bang] then template = sites[alias[bang]]
   query = query.replace(/^\ /, '').replace(/\ +$/, '').replace(/\s+/g, ' ')
-  window.location.href = template(encodeURIComponent(query))
+  window.location.href = template(query)
 
 input = window.location.search
 if input and input.match(/^\?q=/)
-  search = decodeURIComponent(input.substring(3).replace(/\/$/, ""))
+  search = decodeURIComponent(input.substring(3).replace(/\/$/, ''))
   do_search(search)
 
 ###
