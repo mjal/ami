@@ -63,6 +63,7 @@
       return window.location.href = template(query.replace(/\s+/g, ' '));
     };
     input = window.location.search;
+    alert(input);
     if (input && input.charAt(0) === "?" && input.charAt(1) === "q" && input.charAt(2) === "=") {
       return do_search(input.substring(3).replace(/\+/g, " ").replace(/\/$/, ""));
     } else {
