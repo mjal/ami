@@ -35,7 +35,7 @@ $ ->
     window.location.href = template(query.replace(/\s+/g, ' '))
 
   input = window.location.search
-  alert(input)
+  alert(decodeURIComponent(input))
   if input and input.charAt(0) is "?" and input.charAt(1) is "q" and input.charAt(2) is "="
     # handle search params
     do_search(input.substring(3).replace(/\+/g, " ").replace(/\/$/, ""))
