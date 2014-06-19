@@ -3,7 +3,7 @@
   <ShortName>Ami</ShortName>
   <Description>engineDescription</Description>
   <InputEncoding>inputEncoding</InputEncoding>
-  <Image height="64" width="64" type="image/jpg">http://mjal.github.io/ami/logo.jpg</Image>
+  <Image height="64" width="64" type="image/jpg">http://mjal.github.io/ami/logo2.jpg</Image>
   <Url type="text/html" template="http://mjal.github.io/ami?q={searchTerms}" />
   <!--Url type="application/x-suggestions+json" template="suggestionURL"/-->
   <!--moz:SearchForm>http://mjal.github.io/ami</moz:SearchForm--> 
