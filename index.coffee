@@ -18,7 +18,7 @@ alias =
   "sc":   "soundcloud"
   "yt":   "youtube"
 
-default_site = "duckduckgo"
+default_site = "google"
 default_template = sites[default_site]
 
 do_search = (query) ->

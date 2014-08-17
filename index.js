@@ -38,7 +38,7 @@
     "yt": "youtube"
   };
 
-  default_site = "duckduckgo";
+  default_site = "google";
 
   default_template = sites[default_site];
 
