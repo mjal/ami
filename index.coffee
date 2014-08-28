@@ -19,22 +19,22 @@ alias =
   "yt":   "youtube"
 
 default_site = "google"
-default_template = sites[default_site]
+template = sites[default_site]
 
-do_search = (query) ->
-  template = default_template
-  request = query.match(/^(.*)?\!(\w+)( .*)?/) # what?
-  if request
-    bang = request[2]
-    query = request[1]
-    query += request[3] if request[3]
-    if bang and sites[bang] then template = sites[bang]
-    if bang and alias[bang] then template = sites[alias[bang]]
-  query = query.replace(/^\ /, '').replace(/\ +$/, '').replace(/\s+/g, ' ') # what
-  window.location.href = template(query)
+do_search = (sentence) ->
+  words = sentence.split(/\s+/)
+  for bang, site of alias
+    index = 0
+    for word in words
+      console.log(word + ' => ' + bang)
+      if word == ('!' + bang)
+        template = sites[site]
+        words.splice(index, 1)
+      index++
+  window.location.href = template(words.join('+'))
 
 input = window.location.search
 if input and input.match(/^\?q=/)
-  search = decodeURIComponent(input.substring(3).replace(/\/$/, ''))
-  do_search(search)
-# else build ui ?
+  query = input.substring(3).replace(/\/$/, '').replace(/\+/g, ' ')
+  console.log decodeURIComponent(query)
+  do_search(decodeURIComponent(query))
