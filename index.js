@@ -23,6 +23,12 @@
     },
     "soundcloud": function(query) {
       return "https://soundcloud.com/search?q=" + query;
+    },
+    "deezer": function(query) {
+      return "http://deezer.com/fr/search/" + query;
+    },
+    "thepiratebay": function(query) {
+      return "http://thepiratebay.se/search/" + query + "/0/7/0";
     }
   };
 
@@ -35,7 +41,9 @@
     "wus": "wikipedia.com",
     "ddg": "duckduckgo",
     "sc": "soundcloud",
-    "yt": "youtube"
+    "yt": "youtube",
+    "dz": "deezer",
+    "tpb": "thepiratebay"
   };
 
   default_site = "google";

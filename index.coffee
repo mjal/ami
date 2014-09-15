@@ -6,6 +6,8 @@ sites =
   "youtube":       (query) -> "https://www.youtube.com/results?search_query=#{query}"
   "duckduckgo":    (query) -> "https://duckduckgo.com/?q=#{query}"
   "soundcloud":    (query) -> "https://soundcloud.com/search?q=#{query}"
+  "deezer":        (query) -> "http://deezer.com/fr/search/#{query}"
+  "thepiratebay":  (query) -> "http://thepiratebay.se/search/#{query}/0/7/0"
 
 alias =
   "g":    "google"
@@ -17,6 +19,8 @@ alias =
   "ddg":  "duckduckgo"
   "sc":   "soundcloud"
   "yt":   "youtube"
+  "dz":   "deezer"
+  "tpb":  "thepiratebay"
 
 default_site = "google"
 template = sites[default_site]
