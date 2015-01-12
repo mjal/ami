@@ -3,9 +3,32 @@
     <meta charset='utf-8'>
     <link rel="search" type="application/opensearchdescription+xml" title="Ami" href="opensearch.xml">
     <style type="text/css">
+      #logo { margin-top: 160px; }
       #logo, #form { text-align: center; }
+      #query input {
+        margin-top: 60px;
+        width: 600px;
+        text-align: center;
+      }
+      #submit {
+        display: inline-block;
+      }
+      #hint p {
+        margin-top: 10px;
+        text-align: center;
+      }
+      #bangs, #alias{
+        text-align: center;
+        margin: auto;
+        width: 500px;
+      }
+      .alias {
+        display: inline-block;
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
     </style>
-    <script type="text/javascript" src="index.js"></script>
   </head>
   <body>
     <div id="logo">
@@ -14,12 +37,20 @@
     <div id="form">
       <form method="get">
         <div id="query">
-          <input type="text" name="q" autofocus>
+          <input type="text" name="q" autofocus placeholder="Search">
         </div>
-        <div id="submit">
-          <input type="submit">
+        <div id="hint">
+          <p><input type="submit" id="submit" value="Submit">, press Enter, or click on :</p>
         </div>
       </form>
     </div>
+    <div id="bangs">
+    </div>
+    <div id="hint">
+      <p>Here are the bangs you can use : </p>
+    </div>
+    <div id="alias">
+    </div>
+    <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
