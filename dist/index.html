@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+var MicroMustache=function(){function e(e,t){return"string"!=typeof e?e:(("object"!=typeof t||null===t)&&(t={}),e.replace(/\{?\{\{\s*(.*?)\s*\}\}\}?/g,function(e,r){var n=t[r];switch(typeof n){case"string":case"number":case"boolean":return n;case"function":return n(r);default:return""}}))}function t(t){return function(r){return e(t,r)}}return{render:e,to_html:e,compile:t}}();(function(){var e,t,r,n,a,o,u,w,c,s,g,l,i;for(r=[{fullname:"www.google.fr",pattern:"https://www.google.fr/search?q={{query}}",bangs:["g","gfr"]},{fullname:"www.google.com",pattern:"https://www.google.com/search?q={{query}}",bangs:["gus"]},{fullname:"fr.wikipedia.org",pattern:"https://fr.wikipedia.org/w/index.php?search={{query}}",bangs:["w","wfr"]},{fullname:"www.wikipedia.org",pattern:"https://www.wikipedia.org/w/index.php?search={{query}}",bangs:["wus"]},{fullname:"www.youtube.com",pattern:"https://www.youtube.com/results?search_query={{query}}",bangs:["yt"]},{fullname:"www.duckduckgo.com",pattern:"https://duckduckgo.com/?q={{query}}",bangs:["ddg"]},{fullname:"www.duckduckgo.com",pattern:"https://duckduckgo.com/?q={{query}}",bangs:["ddg"]},{fullname:"www.soundcloud.com",pattern:"https://www.soundcloud.com/search?q={{query}}",bangs:["sc"]},{fullname:"www.deezer.com",pattern:"https://www.deezer.com/fr/search/{{query}}",bangs:["dz"]},{fullname:"www.thepiratebay.org",pattern:"https://www.thepiratebay.org/search/{{query}}/0/99/0",bangs:["tpb"]}],n=r[0].pattern,t={},u=0,c=r.length;c>u;u++)for(a=r[u],l=a.bangs,w=0,s=l.length;s>w;w++)e=l[w],t[e]=a;o=function(){var e,t;return e=window.location.search,e&&e.match(/^\?q=/)?(t=e.substring(3).replace(/\/$/,"").replace(/\+/g," "),decodeURIComponent(t)):void 0},i=function(e,t,r){var n,a,o,u,w,c,s;for(u=r,s=e.split(/\s+/),n=0,a=0,o=s.length;o>a;a++)c=s[a],"!"===c.substring(0,1)&&t[c.substring(1)]&&(s.splice(n,1),u=t[c.substring(1)].pattern),n++;return w=MicroMustache.render(u,{query:s.join("+")}),window.location.href=w},g=o(),g&&i(g,t,n)}).call(this);
+</script>
+    <style>
+#alias,#bangs,#form,#hint p,#logo,#query input{text-align:center}#submit,.alias{display:inline-block}#logo{margin-top:160px}#query input{margin-top:60px;width:600px}#hint p{margin-top:10px}#alias,#bangs{margin:auto;width:500px}.alias{margin-top:0;margin-left:10px;margin-right:10px}
+</style> 
+    <link rel="search" type="application/opensearchdescription+xml" title="Ami" href="opensearch.xml">
+  </head>
+  <body>
+    <div id="logo">
+      <img src="logo.jpg">
+    </div>
+    <div id="form">
+      <form method="get">
+        <div id="query">
+          <input type="text" name="q" autofocus placeholder="Search">
+        </div>
+        <div id="hint">
+          <p><input type="submit" id="submit" value="Submit">, press Enter, or click on :</p>
+        </div>
+      </form>
+    </div>
+    <div id="bangs">
+    </div>
+    <div id="hint">
+      <p>Here are the bangs you can use : </p>
+    </div>
+    <div id="alias">
+    </div>
+  </body>
+</html>

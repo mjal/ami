@@ -1,0 +1,25 @@
+#logo { margin-top: 160px; }
+#logo, #form { text-align: center; }
+#query input {
+  margin-top: 60px;
+  width: 600px;
+  text-align: center;
+}
+#submit {
+  display: inline-block;
+}
+#hint p {
+  margin-top: 10px;
+  text-align: center;
+}
+#bangs, #alias{
+  text-align: center;
+  margin: auto;
+  width: 500px;
+}
+.alias {
+  display: inline-block;
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
